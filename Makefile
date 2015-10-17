@@ -1,6 +1,6 @@
-gayColours.exe: gayColours.c
-	cl gayColours.c user32.lib gdi32.lib user32.lib
-    del gayColours.obj
+colours.exe: colours.c
+	cl colours.c user32.lib gdi32.lib user32.lib
+    del colours.obj
 
 clean:
-	rm gayColours.exe
+	rm colours.exe
