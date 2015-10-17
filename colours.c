@@ -98,21 +98,39 @@ int main(int argc, char** argv)
                        0x44 // D key
                        ))
         error("problema RegisterHotKey()");
+        
+    if (!RegisterHotKey(NULL,
+                       1,
+                       MOD_ALT | MOD_CONTROL | MOD_SHIFT,
+                       0x44 // D key
+                       ))
+        error("problema RegisterHotKey()");
     
     
     FaiTuttiDisplay(mode);
     
     while (GetMessage(&msg, NULL, 0, 0) != 0)
     {
-        if (msg.message == WM_HOTKEY)
+        if (msg.message != WM_HOTKEY)
+            continue;
+
+        switch (msg.wParam)
         {
-            if (mode == 2)
-                mode = 0;
-            else
-                mode++;
-            
-            FaiTuttiDisplay(mode);
+            case 0:
+                if (mode == 2)
+                    mode = 0;
+                else
+                    mode++;
+                break;
+            case 1:
+                if (mode == 0)
+                    mode = 2;
+                else
+                    mode--;
+                break;
         }
+        
+        FaiTuttiDisplay(mode);
     }
     
     return 0;
