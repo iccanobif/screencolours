@@ -45,16 +45,16 @@ void FaiDisplay(char* deviceName, int mode)
             for (i = 0; i < 256; i++)
             {
                 ramp[0][i] = i << 8;
-                ramp[1][i] = (int)(i * (200.0/256.0)) << 8;
-                ramp[2][i] = (int)(i * (150.0/256.0)) << 8;
+                ramp[1][i] = (int)(i * (150.0/256.0)) << 8; //TODO: get these numbers from a configuration file
+                ramp[2][i] = (int)(i * (90.0/256.0)) << 8;
             }
             break;
-        case 2: //STRONG
+        case 2: //FULL COLOURS
             for (i = 0; i < 256; i++)
             {
                 ramp[0][i] = i << 8;
-                ramp[1][i] = (int)(i * (150.0/256.0)) << 8;
-                ramp[2][i] = (int)(i * (90.0/256.0)) << 8;
+                ramp[1][i] = i << 8;
+                ramp[2][i] = i << 8;
             }
             break;
     }
@@ -86,8 +86,6 @@ void FaiTuttiDisplay(int mode)
         i++;
     }
 }
-
-
 
 int main(int argc, char** argv)
 {
