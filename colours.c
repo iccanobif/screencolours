@@ -87,7 +87,11 @@ void FaiTuttiDisplay(int mode)
     }
 }
 
-int main(int argc, char** argv)
+//int main(int argc, char** argv)
+int WinMain(HINSTANCE hInstance,
+            HINSTANCE hPrevInstance, 
+            LPTSTR    lpCmdLine, 
+            int       cmdShow)
 {
     MSG msg;
     int mode = 0;
